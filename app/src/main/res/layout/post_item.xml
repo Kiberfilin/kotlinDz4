@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/postItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:background="#ffffff"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/avatarImg"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_android" />
+
+    <TextView
+        android:id="@+id/createdDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="20 august 2019"
+        android:textColor="#999999"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/avatarImg"
+        app:layout_constraintTop_toTopOf="@+id/avatarImg" />
+
+    <TextView
+        android:id="@+id/authorTV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:text="NetologyNetologyNetologyNetologyNetologyNetologyNetologyNetologyNetology"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/contentText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/avatarImg"
+        app:layout_constraintTop_toBottomOf="@+id/createdDate" />
+
+    <TextView
+        android:id="@+id/contentText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:inputType="textMultiLine"
+        android:paddingBottom="16dp"
+        android:text="First Post in our network!"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/avatarImg" />
+
+    <ImageButton
+        android:id="@+id/likeCountIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toStartOf="@id/likeCountText"
+        app:layout_constraintTop_toBottomOf="@id/contentText"
+        app:srcCompat="@drawable/ic_favorite_inactive_24dp" />
+
+    <TextView
+        android:id="@+id/likeCountText"
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:text="2"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/commentCountIcon"
+        app:layout_constraintEnd_toStartOf="@+id/commentCountIcon"
+        app:layout_constraintTop_toBottomOf="@id/contentText" />
+
+    <ImageButton
+        android:id="@+id/commentCountIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toStartOf="@id/commentCountText"
+        app:layout_constraintTop_toBottomOf="@id/contentText"
+        app:srcCompat="@drawable/ic_comment_inactive_24dp" />
+
+    <TextView
+        android:id="@+id/commentCountText"
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:text="8"
+        app:layout_constraintBottom_toBottomOf="@+id/sharedCountIcon"
+        app:layout_constraintEnd_toStartOf="@+id/sharedCountIcon"
+        app:layout_constraintTop_toBottomOf="@id/contentText" />
+
+    <ImageButton
+        android:id="@+id/sharedCountIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toStartOf="@id/sharedCountText"
+        app:layout_constraintTop_toBottomOf="@id/contentText"
+        app:srcCompat="@drawable/ic_share_inactive_24dp" />
+
+    <TextView
+        android:id="@+id/sharedCountText"
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:text="2"
+        app:layout_constraintBottom_toBottomOf="@+id/sharedCountIcon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/contentText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
