@@ -1,11 +1,11 @@
 package ru.cyber_eagle_owl.kotlindz3
 
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.post_item.*
 import ru.cyber_eagle_owl.kotlindz3.dto.Post
 
@@ -24,34 +24,34 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        likeCountIcon.setOnClickListener { likeAction() }
-        commentCountIcon.setOnClickListener { commentAction() }
-        sharedCountIcon.setOnClickListener { shareAction() }
+        eventPostLikeCountIcon.setOnClickListener { likeAction() }
+        eventPostCommentCountIcon.setOnClickListener { commentAction() }
+        eventPostSharedCountIcon.setOnClickListener { shareAction() }
         fillPost(testPost)
     }
 
     private fun fillPost(postModel: Post) {
         with(postModel) {
-            createdDate.text = created
-            contentText.text = content
-            authorTV.text = author
-            fillCountText(likeCountText, likeCount, likedByMe)
-            fillCountText(commentCountText, commentCount, commentedByMe)
-            fillCountText(sharedCountText, shareCount, sharedByMe)
+            eventPostCreatedDate.text = created
+            eventPostContentText.text = content
+            eventPostAuthorTV.text = author
+            fillCountText(eventPostLikeCountText, likeCount, likedByMe)
+            fillCountText(eventPostCommentCountText, commentCount, commentedByMe)
+            fillCountText(eventPostSharedCountText, shareCount, sharedByMe)
             iconManagement(
-                likeCountIcon,
+                eventPostLikeCountIcon,
                 likedByMe,
                 R.drawable.ic_favorite_active_24dp,
                 R.drawable.ic_favorite_inactive_24dp
             )
             iconManagement(
-                commentCountIcon,
+                eventPostCommentCountIcon,
                 commentedByMe,
                 R.drawable.ic_comment_active_24dp,
                 R.drawable.ic_comment_inactive_24dp
             )
             iconManagement(
-                sharedCountIcon,
+                eventPostSharedCountIcon,
                 sharedByMe,
                 R.drawable.ic_share_active_24dp,
                 R.drawable.ic_share_inactive_24dp
@@ -68,21 +68,9 @@ class MainActivity : AppCompatActivity() {
         with(textView) {
             text = count.toString()
             if (isTheTextColored) {
-                setTextColor(
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                        resources.getColor(R.color.colorRed, this@MainActivity.theme)
-                    } else {
-                        resources.getColor(R.color.colorRed)
-                    }
-                )
+                setTextColor(ContextCompat.getColor(this@MainActivity, R.color.colorRed))
             } else {
-                setTextColor(
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                        resources.getColor(R.color.colorTextSecondary, this@MainActivity.theme)
-                    } else {
-                        resources.getColor(R.color.colorTextSecondary)
-                    }
-                )
+                setTextColor(ContextCompat.getColor(this@MainActivity, R.color.colorTextSecondary))
             }
         }
     }
@@ -93,21 +81,13 @@ class MainActivity : AppCompatActivity() {
         activeIcon: Int,
         inactiveIcon: Int
     ) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            icon.setImageDrawable(
-                resources.getDrawable(
-                    if (isTheIconActive) activeIcon else inactiveIcon,
-                    this.theme
-                )
-            )
-        } else {
-            icon.setImageDrawable(resources.getDrawable(if (isTheIconActive) activeIcon else inactiveIcon))
-        }
+        icon.setImageResource(if (isTheIconActive) activeIcon else inactiveIcon)
     }
 
     private fun likeAction() {
         with(testPost) {
             likedByMe = !likedByMe
+            if (likedByMe) likeCount++ else likeCount--
             fillPost(this)
         }
     }
@@ -115,6 +95,7 @@ class MainActivity : AppCompatActivity() {
     private fun commentAction() {
         with(testPost) {
             commentedByMe = !commentedByMe
+            if (commentedByMe) commentCount++ else commentCount--
             fillPost(this)
         }
     }
@@ -122,6 +103,7 @@ class MainActivity : AppCompatActivity() {
     private fun shareAction() {
         with(testPost) {
             sharedByMe = !sharedByMe
+            if (sharedByMe) shareCount++ else shareCount--
             fillPost(this)
         }
     }
