@@ -1,7 +1,7 @@
 package ru.cyber_eagle_owl.kotlindz3.dto
 
-data class Post(
-    val id: Long,
+open class Post(
+    val id: Long = 0,
     val author: String,
     val content: String,
     val created: String,
@@ -11,5 +11,4 @@ data class Post(
     var likedByMe: Boolean,
     var commentedByMe: Boolean,
     var sharedByMe: Boolean
-) {
-}
+)

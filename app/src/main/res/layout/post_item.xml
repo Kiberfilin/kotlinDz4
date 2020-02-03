@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/eventPostItem"
+    android:id="@+id/postItem"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
@@ -10,7 +10,7 @@
     android:padding="8dp">
 
     <ImageView
-        android:id="@+id/eventPostAvatarImg"
+        android:id="@+id/postAvatarImg"
         android:layout_width="48dp"
         android:layout_height="48dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,18 +18,18 @@
         app:srcCompat="@drawable/ic_android" />
 
     <TextView
-        android:id="@+id/eventPostCreatedDate"
+        android:id="@+id/postCreatedDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         tools:text="20 august 2019"
         android:textColor="#999999"
         android:textSize="10sp"
-        app:layout_constraintStart_toEndOf="@+id/eventPostAvatarImg"
-        app:layout_constraintTop_toTopOf="@+id/eventPostAvatarImg" />
+        app:layout_constraintStart_toEndOf="@+id/postAvatarImg"
+        app:layout_constraintTop_toTopOf="@+id/postAvatarImg" />
 
     <TextView
-        android:id="@+id/eventPostAuthorTV"
+        android:id="@+id/postAuthorTV"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -37,13 +37,13 @@
         android:singleLine="true"
         tools:text="NetologyNetologyNetologyNetologyNetologyNetologyNetologyNetologyNetology"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/eventPostContentText"
+        app:layout_constraintBottom_toTopOf="@+id/postContentText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/eventPostAvatarImg"
-        app:layout_constraintTop_toBottomOf="@+id/eventPostCreatedDate" />
+        app:layout_constraintStart_toEndOf="@+id/postAvatarImg"
+        app:layout_constraintTop_toBottomOf="@+id/postCreatedDate" />
 
     <TextView
-        android:id="@+id/eventPostContentText"
+        android:id="@+id/postContentText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -53,67 +53,67 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/eventPostAvatarImg" />
+        app:layout_constraintTop_toBottomOf="@id/postAvatarImg" />
 
     <ImageButton
-        android:id="@+id/eventPostLikeCountIcon"
+        android:id="@+id/postLikeCountIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
-        app:layout_constraintEnd_toStartOf="@id/eventPostLikeCountText"
-        app:layout_constraintTop_toBottomOf="@id/eventPostContentText"
+        app:layout_constraintEnd_toStartOf="@id/postLikeCountText"
+        app:layout_constraintTop_toBottomOf="@id/postContentText"
         app:srcCompat="@drawable/ic_favorite_inactive_24dp" />
 
     <TextView
-        android:id="@+id/eventPostLikeCountText"
+        android:id="@+id/postLikeCountText"
         android:layout_width="32dp"
         android:layout_height="wrap_content"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
         tools:text="2"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@+id/eventPostCommentCountIcon"
-        app:layout_constraintEnd_toStartOf="@+id/eventPostCommentCountIcon"
-        app:layout_constraintTop_toBottomOf="@id/eventPostContentText" />
+        app:layout_constraintBottom_toBottomOf="@+id/postCommentCountIcon"
+        app:layout_constraintEnd_toStartOf="@+id/postCommentCountIcon"
+        app:layout_constraintTop_toBottomOf="@id/postContentText" />
 
     <ImageButton
-        android:id="@+id/eventPostCommentCountIcon"
+        android:id="@+id/postCommentCountIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
-        app:layout_constraintEnd_toStartOf="@id/eventPostCommentCountText"
-        app:layout_constraintTop_toBottomOf="@id/eventPostContentText"
+        app:layout_constraintEnd_toStartOf="@id/postCommentCountText"
+        app:layout_constraintTop_toBottomOf="@id/postContentText"
         app:srcCompat="@drawable/ic_comment_inactive_24dp" />
 
     <TextView
-        android:id="@+id/eventPostCommentCountText"
+        android:id="@+id/postCommentCountText"
         android:layout_width="32dp"
         android:layout_height="wrap_content"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
         tools:text="8"
-        app:layout_constraintBottom_toBottomOf="@+id/eventPostSharedCountIcon"
-        app:layout_constraintEnd_toStartOf="@+id/eventPostSharedCountIcon"
-        app:layout_constraintTop_toBottomOf="@id/eventPostContentText" />
+        app:layout_constraintBottom_toBottomOf="@+id/postSharedCountIcon"
+        app:layout_constraintEnd_toStartOf="@+id/postSharedCountIcon"
+        app:layout_constraintTop_toBottomOf="@id/postContentText" />
 
     <ImageButton
-        android:id="@+id/eventPostSharedCountIcon"
+        android:id="@+id/postSharedCountIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
-        app:layout_constraintEnd_toStartOf="@id/eventPostSharedCountText"
-        app:layout_constraintTop_toBottomOf="@id/eventPostContentText"
+        app:layout_constraintEnd_toStartOf="@id/postSharedCountText"
+        app:layout_constraintTop_toBottomOf="@id/postContentText"
         app:srcCompat="@drawable/ic_share_inactive_24dp" />
 
     <TextView
-        android:id="@+id/eventPostSharedCountText"
+        android:id="@+id/postSharedCountText"
         android:layout_width="32dp"
         android:layout_height="wrap_content"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
         tools:text="2"
-        app:layout_constraintBottom_toBottomOf="@+id/eventPostSharedCountIcon"
+        app:layout_constraintBottom_toBottomOf="@+id/postSharedCountIcon"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/eventPostContentText" />
+        app:layout_constraintTop_toBottomOf="@id/postContentText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
